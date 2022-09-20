@@ -11,5 +11,8 @@ return [
     "ConferenceServiceTeamSubTitle" => "Ваш персональний менеджер",
     "CopyrightFirstField" => "Усі права збережено",
     "CopyrightSecondField" => "City Inn Smart Hotel Lviv",
-
+    "RoomPrePrice" => "ціна від",
+    "RoomBuyButton" => "Забронювати",
+    "RoomServicesInclude" => "ВХОДИТЬ У ВАРТІСТЬ",
+    "ContactAddress" => "Адреси",
 ];
