@@ -18,19 +18,6 @@ class Footer extends Model
     }
 
     public  function show(){
-        $addresses = Address::all()->where("active",1);
-        $addressItems = array();
-        foreach ($addresses as $address){
-            array_push($addressItems,array(
-                "text" => $address->text,
-                "link" => is_null($address->link) ? "" : $address->link
-            ));
-        }
-        $addresses = array(array(
-            "title" => "Адреса",
-            "items" => $addressItems
-        ));
-
         $footerHeaders = self::where("active",1)->get()->sortBy("sort");
         $result["copyright"] = array(
             trans("controllers.CopyrightFirstField"),
@@ -47,7 +34,7 @@ class Footer extends Model
 
                 array_push($itemsInfo, array(
                     "text" => $item->title,
-                    "link" => $item->link
+                    "link" => is_null($item->link) ? "" : $item->link
                 ));
             }
             array_push($result["columns"],array(
@@ -55,8 +42,7 @@ class Footer extends Model
                 "items" => $itemsInfo
             ));
         }
-        if($result["columns"])
-            array_splice($result["columns"], 1, 0, $addresses);
+
 
         return $result;
     }
