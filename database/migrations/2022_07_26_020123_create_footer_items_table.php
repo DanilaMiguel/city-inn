@@ -15,8 +15,9 @@ return new class extends Migration
     {
         Schema::create('footer_items', function (Blueprint $table) {
             $table->id();
+            $table->text("name");
             $table->text("title");
-            $table->string("link");
+            $table->string("link")->nullable();
             $table->integer("sort");
             $table->timestamps();
         });

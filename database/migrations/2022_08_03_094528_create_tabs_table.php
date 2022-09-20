@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->text("title");
             $table->text("text");
+            $table->text("text_adder")->nullable();
             $table->integer("sort");
             $table->timestamps();
         });

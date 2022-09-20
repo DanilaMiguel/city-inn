@@ -15,8 +15,9 @@ return new class extends Migration
     {
         Schema::create('contact_items', function (Blueprint $table) {
             $table->id();
+            $table->text("name");
             $table->text("title");
-            $table->text("link");
+            $table->text("link")->nullable();
             $table->integer("sort");
             $table->boolean("call_us");
             $table->timestamps();

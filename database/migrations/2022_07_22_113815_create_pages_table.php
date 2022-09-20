@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->text("title");
             $table->text("subtitle")->nullable();
-            $table->text("description");
+            $table->text("description")->nullable();
             $table->integer("sort");
             $table->text("seo_title");
             $table->text("seo_description");
