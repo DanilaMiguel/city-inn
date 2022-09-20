@@ -21,21 +21,21 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale()], function(){
 
-    Route::get('/', [\App\Http\Controllers\PageController::class, 'index']);
+    Route::get('/index', [\App\Http\Controllers\PageController::class, 'index']);
     Route::get('/header/', [\App\Http\Controllers\PageController::class, 'header']);
     Route::get('/footer/', [\App\Http\Controllers\PageController::class, 'footer']);
+    Route::get('/sitemap/', [\App\Http\Controllers\PageController::class, 'sitemap']);
 
 
-    Route::get('/rooms/', [\App\Http\Controllers\RoomController::class, 'index']);
+    Route::get('/rooms/index', [\App\Http\Controllers\RoomController::class, 'index']);
     Route::get('/rooms/{code}', [\App\Http\Controllers\RoomController::class, 'show']);
 
 
-    Route::get("/contacts_card/", [\App\Http\Controllers\ContactController::class, 'index']);
-    Route::get("/contacts/", [\App\Http\Controllers\ContactController::class, 'show']);
+    Route::get("/contacts/", [\App\Http\Controllers\ContactController::class, 'index']);
 
-    Route::get('/restaurant/', [\App\Http\Controllers\RestaurantController::class, 'index']);
+    Route::get('/restaurant-sviatoslav/', [\App\Http\Controllers\RestaurantController::class, 'index']);
 
-    Route::get('/lobby/', [\App\Http\Controllers\LobbyController::class, 'index']);
+    Route::get('/lobby-bar/', [\App\Http\Controllers\LobbyController::class, 'index']);
 
     Route::get('/about/', [\App\Http\Controllers\AboutController::class, 'index']);
 
@@ -43,8 +43,11 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale()], fu
 
     Route::get('/smart-offer/', [\App\Http\Controllers\SmartOfferController::class, 'index']);
 
-    Route::get('/conference-service/', [\App\Http\Controllers\ConferenceController::class, 'index']);
+    Route::get('/conference-service/index', [\App\Http\Controllers\ConferenceController::class, 'index']);
     Route::get('/conference-service/{code}', [\App\Http\Controllers\ConferenceController::class, 'show']);
 
     Route::get('/group-request/', [\App\Http\Controllers\GroupRequestController::class, 'index']);
+
+    Route::get('/privacy-policy/',[\App\Http\Controllers\DocumentController::class, 'privacyPolicy']);
+    Route::get('/public-offer/',[\App\Http\Controllers\DocumentController::class, 'publicOffer']);
 });
