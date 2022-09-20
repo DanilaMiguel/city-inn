@@ -29,14 +29,14 @@ class AboutController extends Controller
                 "language"  => App::getLocale(),
                 "image" => array(
                     "webp" => array(
-                        "mobile" => "/storage/" . $mobileImage->path . $mobileImage->webp_name,
-                        "tablet" => "/storage/" . $tabletImage->path . $tabletImage->webp_name,
-                        "desktop" => "/storage/" . $image->path . $image->webp_name,
+                        "mobile" => "https://admin.city-inn.com.ua/storage/" . $mobileImage->path . $mobileImage->webp_name,
+                        "tablet" => "https://admin.city-inn.com.ua/storage/" . $tabletImage->path . $tabletImage->webp_name,
+                        "desktop" => "https://admin.city-inn.com.ua/storage/" . $image->path . $image->webp_name,
                     ),
                     "jpg" => array(
-                        "mobile" => "/storage/" . $mobileImage->path . $mobileImage->file_name,
-                        "tablet" => "/storage/" . $tabletImage->path . $tabletImage->file_name,
-                        "desktop" => "/storage/" . $image->path . $image->file_name,
+                        "mobile" => "https://admin.city-inn.com.ua/storage/" . $mobileImage->path . $mobileImage->file_name,
+                        "tablet" => "https://admin.city-inn.com.ua/storage/" . $tabletImage->path . $tabletImage->file_name,
+                        "desktop" => "https://admin.city-inn.com.ua/storage/" . $image->path . $image->file_name,
                     )
                 ),
                 "content" => array(
@@ -74,14 +74,14 @@ class AboutController extends Controller
                     $slideInfo = array();
                     $slideInfo["image"] = array(
                         "webp" => array(
-                            "mobile" => "/storage/" . $mobileImage->path . $mobileImage->webp_name,
-                            "tablet" => "/storage/" . $tabletImage->path . $tabletImage->webp_name,
-                            "desktop" => "/storage/" . $image->path . $image->webp_name,
+                            "mobile" => "https://admin.city-inn.com.ua/storage/" . $mobileImage->path . $mobileImage->webp_name,
+                            "tablet" => "https://admin.city-inn.com.ua/storage/" . $tabletImage->path . $tabletImage->webp_name,
+                            "desktop" => "https://admin.city-inn.com.ua/storage/" . $image->path . $image->webp_name,
                         ),
                         "jpg" => array(
-                            "mobile" => "/storage/" . $mobileImage->path . $mobileImage->file_name,
-                            "tablet" => "/storage/" . $tabletImage->path . $tabletImage->file_name,
-                            "desktop" => "/storage/" . $image->path . $image->file_name,
+                            "mobile" => "https://admin.city-inn.com.ua/storage/" . $mobileImage->path . $mobileImage->file_name,
+                            "tablet" => "https://admin.city-inn.com.ua/storage/" . $tabletImage->path . $tabletImage->file_name,
+                            "desktop" => "https://admin.city-inn.com.ua/storage/" . $image->path . $image->file_name,
                         )
                     );
                     if($slide->header)
@@ -114,14 +114,14 @@ class AboutController extends Controller
                         if($image)
                             array_push($images, array(
                                 "webp" => array(
-                                    "mobile" => "/storage/" . $mobileImage->path . $mobileImage->webp_name,
-                                    "tablet" => "/storage/" . $tabletImage->path . $tabletImage->webp_name,
-                                    "desktop" => "/storage/" . $image->path . $image->webp_name,
+                                    "mobile" => "https://admin.city-inn.com.ua/storage/" . $mobileImage->path . $mobileImage->webp_name,
+                                    "tablet" => "https://admin.city-inn.com.ua/storage/" . $tabletImage->path . $tabletImage->webp_name,
+                                    "desktop" => "https://admin.city-inn.com.ua/storage/" . $image->path . $image->webp_name,
                                 ),
                                 "jpg" => array(
-                                    "mobile" => "/storage/" . $mobileImage->path . $mobileImage->file_name,
-                                    "tablet" => "/storage/" . $tabletImage->path . $tabletImage->file_name,
-                                    "desktop" => "/storage/" . $image->path . $image->file_name,
+                                    "mobile" => "https://admin.city-inn.com.ua/storage/" . $mobileImage->path . $mobileImage->file_name,
+                                    "tablet" => "https://admin.city-inn.com.ua/storage/" . $tabletImage->path . $tabletImage->file_name,
+                                    "desktop" => "https://admin.city-inn.com.ua/storage/" . $image->path . $image->file_name,
                                 )
                             ));
                     }

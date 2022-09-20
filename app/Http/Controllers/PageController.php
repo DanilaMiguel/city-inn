@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ConferenceService;
+use App\Models\Room;
 use Illuminate\Http\Request;
 use App\Models\Page;
 use App\Models\SocialNetwork;
@@ -35,14 +37,14 @@ class PageController extends Controller
                 "language"  => App::getLocale(),
                 "image" => array(
                     "webp" => array(
-                        "mobile" => "/storage/" . $mobileImage->path . $mobileImage->webp_name,
-                        "tablet" => "/storage/" . $tabletImage->path . $tabletImage->webp_name,
-                        "desktop" => "/storage/" . $image->path . $image->webp_name,
+                        "mobile" => "https://admin.city-inn.com.ua/storage/" . $mobileImage->path . $mobileImage->webp_name,
+                        "tablet" => "https://admin.city-inn.com.ua/storage/" . $tabletImage->path . $tabletImage->webp_name,
+                        "desktop" => "https://admin.city-inn.com.ua/storage/" . $image->path . $image->webp_name,
                     ),
                     "jpg" => array(
-                        "mobile" => "/storage/" . $mobileImage->path . $mobileImage->file_name,
-                        "tablet" => "/storage/" . $tabletImage->path . $tabletImage->file_name,
-                        "desktop" => "/storage/" . $image->path . $image->file_name,
+                        "mobile" => "https://admin.city-inn.com.ua/storage/" . $mobileImage->path . $mobileImage->file_name,
+                        "tablet" => "https://admin.city-inn.com.ua/storage/" . $tabletImage->path . $tabletImage->file_name,
+                        "desktop" => "https://admin.city-inn.com.ua/storage/" . $image->path . $image->file_name,
                     )
                 )
             );
@@ -82,14 +84,14 @@ class PageController extends Controller
                     $mobileImage = $imageObject->resolveResponseValue($section->mobile_section_image);
                     $sectionResult["image"] = array(
                         "webp" => array(
-                            "mobile" => "/storage/" . $mobileImage->path . $mobileImage->webp_name,
-                            "tablet" => "/storage/" . $tabletImage->path . $tabletImage->webp_name,
-                            "desktop" => "/storage/" . $image->path . $image->webp_name,
+                            "mobile"  => "https://admin.city-inn.com.ua/storage/" . $mobileImage->path . $mobileImage->webp_name,
+                            "tablet"  => "https://admin.city-inn.com.ua/storage/" . $tabletImage->path . $tabletImage->webp_name,
+                            "desktop" => "https://admin.city-inn.com.ua/storage/" . $image->path . $image->webp_name,
                         ),
                         "jpg" => array(
-                            "mobile" => "/storage/" . $mobileImage->path . $mobileImage->file_name,
-                            "tablet" => "/storage/" . $tabletImage->path . $tabletImage->file_name,
-                            "desktop" => "/storage/" . $image->path . $image->file_name,
+                            "mobile"  => "https://admin.city-inn.com.ua/storage/" . $mobileImage->path . $mobileImage->file_name,
+                            "tablet"  => "https://admin.city-inn.com.ua/storage/" . $tabletImage->path . $tabletImage->file_name,
+                            "desktop" => "https://admin.city-inn.com.ua/storage/" . $image->path . $image->file_name,
                         )
                     );
                 }
@@ -172,14 +174,14 @@ class PageController extends Controller
                 "title" => $defaultMenuItem->title,
                 "image" => array(
                     "webp" => array(
-                        "mobile" => "/storage/" . $mobileImage->path . $mobileImage->webp_name,
-                        "tablet" => "/storage/" . $tabletImage->path . $tabletImage->webp_name,
-                        "desktop" => "/storage/" . $image->path . $image->webp_name,
+                        "mobile" => "https://admin.city-inn.com.ua/storage/" . $mobileImage->path . $mobileImage->webp_name,
+                        "tablet" => "https://admin.city-inn.com.ua/storage/" . $tabletImage->path . $tabletImage->webp_name,
+                        "desktop" => "https://admin.city-inn.com.ua/storage/" . $image->path . $image->webp_name,
                     ),
                     "jpg" => array(
-                        "mobile" => "/storage/" . $mobileImage->path . $mobileImage->file_name,
-                        "tablet" => "/storage/" . $tabletImage->path . $tabletImage->file_name,
-                        "desktop" => "/storage/" . $image->path . $image->file_name,
+                        "mobile"  => "https://admin.city-inn.com.ua/storage/" . $mobileImage->path . $mobileImage->file_name,
+                        "tablet"  => "https://admin.city-inn.com.ua/storage/" . $tabletImage->path . $tabletImage->file_name,
+                        "desktop" => "https://admin.city-inn.com.ua/storage/" . $image->path . $image->file_name,
                     )
                 ))
             );
@@ -188,21 +190,21 @@ class PageController extends Controller
 
             foreach ($menuItems as $item){
                 $image = $imageObject->resolveResponseValue($item->background_image);
-                $tabletImage = $imageObject->resolveResponseValue($defaultMenuItem->tablet_background_image);
-                $mobileImage = $imageObject->resolveResponseValue($defaultMenuItem->mobile_background_image);
+                $tabletImage = $imageObject->resolveResponseValue($item->tablet_background_image);
+                $mobileImage = $imageObject->resolveResponseValue($item->mobile_background_image);
                 array_push($result["menu"], array(
                     "title" => $item->title,
                     "link"  => is_null($item->link) ? "#" : $item->link,
                     "image" => array(
                         "webp" => array(
-                            "mobile" => "/storage/" . $mobileImage->path . $mobileImage->webp_name,
-                            "tablet" => "/storage/" . $tabletImage->path . $tabletImage->webp_name,
-                            "desktop" => "/storage/" . $image->path . $image->webp_name,
+                            "mobile"  => "https://admin.city-inn.com.ua/storage/" . $mobileImage->path . $mobileImage->webp_name,
+                            "tablet"  => "https://admin.city-inn.com.ua/storage/" . $tabletImage->path . $tabletImage->webp_name,
+                            "desktop" => "https://admin.city-inn.com.ua/storage/" . $image->path . $image->webp_name,
                         ),
                         "jpg" => array(
-                            "mobile" => "/storage/" . $mobileImage->path . $mobileImage->file_name,
-                            "tablet" => "/storage/" . $tabletImage->path . $tabletImage->file_name,
-                            "desktop" => "/storage/" . $image->path . $image->file_name,
+                            "mobile"  => "https://admin.city-inn.com.ua/storage/" . $mobileImage->path . $mobileImage->file_name,
+                            "tablet"  => "https://admin.city-inn.com.ua/storage/" . $tabletImage->path . $tabletImage->file_name,
+                            "desktop" => "https://admin.city-inn.com.ua/storage/" . $image->path . $image->file_name,
                         )
                     )
                 ));
@@ -219,5 +221,33 @@ class PageController extends Controller
                 'status' => 'failure',
                 "error"  => "Page data not found"
             ]);
+    }
+
+    public function sitemap(){
+        $result["links"] = array(
+            "https://city-inn.com.ua/",
+            "https://city-inn.com.ua/restaurant-sviatoslav/",
+            "https://city-inn.com.ua/lobby-bar/",
+            "https://city-inn.com.ua/about/",
+            "https://city-inn.com.ua/starfit/",
+            "https://city-inn.com.ua/smart-offer/",
+            "https://city-inn.com.ua/group-request/",
+            "https://city-inn.com.ua/rooms/",
+            "https://city-inn.com.ua/conference-service/",
+        );
+
+        $rooms = Room::where("active", 1)->get();
+        foreach ($rooms as $room)
+            array_push($result["links"], "https://city-inn.com.ua/rooms/".$room->code);
+
+        $conferenceServices = ConferenceService::where("active", 1)->get();
+        foreach ($conferenceServices as $service)
+            array_push($result["links"], "https://city-inn.com.ua/conference-service/".$service->code);
+
+        return response()->json([
+            'status' => 'success',
+            'content' => $result
+        ]);
+
     }
 }

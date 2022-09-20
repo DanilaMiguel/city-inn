@@ -29,14 +29,14 @@ class GroupRequestController extends Controller
                 "language"  => App::getLocale(),
                 "image" => array(
                     "webp" => array(
-                        "mobile" => "/storage/" . $mobileImage->path . $mobileImage->webp_name,
-                        "tablet" => "/storage/" . $tabletImage->path . $tabletImage->webp_name,
-                        "desktop" => "/storage/" . $image->path . $image->webp_name,
+                        "mobile" => "https://admin.city-inn.com.ua/storage/" . $mobileImage->path . $mobileImage->webp_name,
+                        "tablet" => "https://admin.city-inn.com.ua/storage/" . $tabletImage->path . $tabletImage->webp_name,
+                        "desktop" => "https://admin.city-inn.com.ua/storage/" . $image->path . $image->webp_name,
                     ),
                     "jpg" => array(
-                        "mobile" => "/storage/" . $mobileImage->path . $mobileImage->file_name,
-                        "tablet" => "/storage/" . $tabletImage->path . $tabletImage->file_name,
-                        "desktop" => "/storage/" . $image->path . $image->file_name,
+                        "mobile" => "https://admin.city-inn.com.ua/storage/" . $mobileImage->path . $mobileImage->file_name,
+                        "tablet" => "https://admin.city-inn.com.ua/storage/" . $tabletImage->path . $tabletImage->file_name,
+                        "desktop" => "https://admin.city-inn.com.ua/storage/" . $image->path . $image->file_name,
                     )
                 ),
             );
@@ -71,7 +71,7 @@ class GroupRequestController extends Controller
                             $image = $imageObject->resolveResponseValue($feature->icon);
                             array_push($features_data,array(
                                 "title" =>  $feature->title,
-                                "icon"  =>  "/storage/".$image->path.$image->file_name
+                                "icon"  =>  "https://admin.city-inn.com.ua/storage/".$image->path.$image->file_name
                             ));
                         }
 
@@ -86,14 +86,14 @@ class GroupRequestController extends Controller
                             "description"   => $room->description,
                             "previewImage" =>  array(
                                 "webp"  => array(
-                                    "mobile"  => "/storage/".$mobileImage->path.$mobileImage->webp_name,
-                                    "tablet"  => "/storage/".$tabletImage->path.$tabletImage->webp_name,
-                                    "desktop" => "/storage/".$image->path.$image->webp_name,
+                                    "mobile"  => "https://admin.city-inn.com.ua/storage/".$mobileImage->path.$mobileImage->webp_name,
+                                    "tablet"  => "https://admin.city-inn.com.ua/storage/".$tabletImage->path.$tabletImage->webp_name,
+                                    "desktop" => "https://admin.city-inn.com.ua/storage/".$image->path.$image->webp_name,
                                 ),
                                 "jpg"   => array(
-                                    "mobile"  => "/storage/".$mobileImage->path.$mobileImage->file_name,
-                                    "tablet"  => "/storage/".$tabletImage->path.$tabletImage->file_name,
-                                    "desktop" => "/storage/".$image->path.$image->file_name,
+                                    "mobile"  => "https://admin.city-inn.com.ua/storage/".$mobileImage->path.$mobileImage->file_name,
+                                    "tablet"  => "https://admin.city-inn.com.ua/storage/".$tabletImage->path.$tabletImage->file_name,
+                                    "desktop" => "https://admin.city-inn.com.ua/storage/".$image->path.$image->file_name,
                                 )
                             ),
                             "more"     =>  array(
@@ -140,14 +140,14 @@ class GroupRequestController extends Controller
                         $slideInfo = array();
                         $slideInfo["image"] = array(
                             "webp" => array(
-                                "mobile" => "/storage/" . $mobileImage->path . $mobileImage->webp_name,
-                                "tablet" => "/storage/" . $tabletImage->path . $tabletImage->webp_name,
-                                "desktop" => "/storage/" . $image->path . $image->webp_name,
+                                "mobile" => "https://admin.city-inn.com.ua/storage/" . $mobileImage->path . $mobileImage->webp_name,
+                                "tablet" => "https://admin.city-inn.com.ua/storage/" . $tabletImage->path . $tabletImage->webp_name,
+                                "desktop" => "https://admin.city-inn.com.ua/storage/" . $image->path . $image->webp_name,
                             ),
                             "jpg" => array(
-                                "mobile" => "/storage/" . $mobileImage->path . $mobileImage->file_name,
-                                "tablet" => "/storage/" . $tabletImage->path . $tabletImage->file_name,
-                                "desktop" => "/storage/" . $image->path . $image->file_name,
+                                "mobile" => "https://admin.city-inn.com.ua/storage/" . $mobileImage->path . $mobileImage->file_name,
+                                "tablet" => "https://admin.city-inn.com.ua/storage/" . $tabletImage->path . $tabletImage->file_name,
+                                "desktop" => "https://admin.city-inn.com.ua/storage/" . $image->path . $image->file_name,
                             )
                         );
                         if($slide->header)
@@ -168,7 +168,7 @@ class GroupRequestController extends Controller
                             $image = $imageObject->resolveResponseValue($service->icon);
                             array_push($services,array(
                                 "title" =>  $service->title,
-                                "icon"  =>  "/storage/" . $image->path . $image->file_name
+                                "icon"  =>  "https://admin.city-inn.com.ua/storage/" . $image->path . $image->file_name
                             ));
                         }
                         if($services)
@@ -190,14 +190,14 @@ class GroupRequestController extends Controller
                             if($image)
                                 array_push($images, array(
                                     "webp" => array(
-                                        "mobile" => "/storage/" . $mobileImage->path . $mobileImage->webp_name,
-                                        "tablet" => "/storage/" . $tabletImage->path . $tabletImage->webp_name,
-                                        "desktop" => "/storage/" . $image->path . $image->webp_name,
+                                        "mobile" => "https://admin.city-inn.com.ua/storage/" . $mobileImage->path . $mobileImage->webp_name,
+                                        "tablet" => "https://admin.city-inn.com.ua/storage/" . $tabletImage->path . $tabletImage->webp_name,
+                                        "desktop" => "https://admin.city-inn.com.ua/storage/" . $image->path . $image->webp_name,
                                     ),
                                     "jpg" => array(
-                                        "mobile" => "/storage/" . $mobileImage->path . $mobileImage->file_name,
-                                        "tablet" => "/storage/" . $tabletImage->path . $tabletImage->file_name,
-                                        "desktop" => "/storage/" . $image->path . $image->file_name,
+                                        "mobile" => "https://admin.city-inn.com.ua/storage/" . $mobileImage->path . $mobileImage->file_name,
+                                        "tablet" => "https://admin.city-inn.com.ua/storage/" . $tabletImage->path . $tabletImage->file_name,
+                                        "desktop" => "https://admin.city-inn.com.ua/storage/" . $image->path . $image->file_name,
                                     )
                                 ));
                         }

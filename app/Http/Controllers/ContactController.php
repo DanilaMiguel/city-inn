@@ -39,12 +39,7 @@ class ContactController extends Controller
                     ),
                     "zoom" => $map->zoom
                 ),
-                "columns" => array(
-                    array(
-                        "title" => "Адреса",
-                        "items" => $addressItems
-                    )
-                ),
+                "columns" => array(),
                 "book" => array(
                     "title" => $contactBlock->reserve_text,
                     "link" => $contactBlock->reserve_link
@@ -58,7 +53,7 @@ class ContactController extends Controller
                 foreach ($contactItems as $item) {
                     array_push($contactInfo, array(
                         "text" => $item->title,
-                        "link" => $item->link
+                        "link" => is_null($item->link) ? "" : $item->link
                     ));
                 }
                 array_push($result["columns"], array(
