@@ -23,6 +23,15 @@ class Room extends Resource
      */
     public static $model = \App\Models\Room::class;
 
+
+    /**
+     * The name of menu Group item the resource corresponds to.
+     *
+     * @var string
+     */
+    public static $group = "Генеровані сторінки";
+
+
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
@@ -49,22 +58,22 @@ class Room extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Translatable::make("Назва","title")->sortable(),
-            Text::make("Код","code"),
-            Text::make("XML","xml_id"),
+            Translatable::make("Назва","title")->sortable()->required(),
+            Text::make("Код","code")->required(),
+            Text::make("XML","xml_id")->required(),
             Number::make("Сортування",'sort')->default(100)->sortable(),
-            MediaField::make("Прев'ю", 'preview_image'),
-            MediaField::make("Планшетне Прев'ю", 'tablet_preview_image'),
-            MediaField::make("Мобільне Прев'ю", 'mobile_preview_image'),
-            Translatable::make("Опис","description"),
+            MediaField::make("Прев'ю", 'preview_image')->required(),
+            MediaField::make("Планшетне Прев'ю", 'tablet_preview_image')->required(),
+            MediaField::make("Мобільне Прев'ю", 'mobile_preview_image')->required(),
+            Translatable::make("Опис","description")->required(),
             Boolean::make("Активність","active"),
-            Text::make("Посилання на бронювання","book_link"),
-            Translatable::make("SEO title","seo_title"),
-            Translatable::make("SEO description","seo_description"),
-            MediaField::make('Зображення', 'images')->multiple(),
-            MediaField::make('Планшетні зображення', 'tablet_images')->multiple(),
-            MediaField::make('Мобільні зображення', 'mobile_images')->multiple(),
-            Text::make("Ціна","price"),
+            Text::make("Посилання на бронювання","book_link")->required(),
+            Translatable::make("SEO title","seo_title")->required(),
+            Translatable::make("SEO description","seo_description")->required(),
+            MediaField::make('Зображення', 'images')->multiple()->required(),
+            MediaField::make('Планшетні зображення', 'tablet_images')->multiple()->required(),
+            MediaField::make('Мобільні зображення', 'mobile_images')->multiple()->required(),
+            Text::make("Ціна","price")->required(),
             BelongsToMany::make('Основні сервіси',"features","App\Nova\Icon"),
             BelongsToMany::make('Включено в ціну',"cost_include","App\Nova\Icon"),
             BelongsToMany::make("Прев'ю іконки","main_features","App\Nova\Icon"),
@@ -113,5 +122,15 @@ class Room extends Resource
     public function actions(Request $request)
     {
         return [];
+    }
+
+    /**
+     * The name of menu item the resource corresponds to.
+     *
+     * @return array|\Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Translation\Translator|string|null
+     */
+    public static function label()
+    {
+        return __('Кімнати');
     }
 }

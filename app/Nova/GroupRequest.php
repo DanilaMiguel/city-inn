@@ -21,6 +21,15 @@ class GroupRequest extends Resource
      */
     public static $model = \App\Models\GroupRequest::class;
 
+
+    /**
+     * The name of menu Group item the resource corresponds to.
+     *
+     * @var string
+     */
+    public static $group = "Сторінки";
+
+
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
@@ -47,7 +56,7 @@ class GroupRequest extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Translatable::make("Заголовок","title")->sortable(),
+            Translatable::make("Заголовок","title")->sortable()->required(),
             Translatable::make("Підзаголовок","subtitle")->sortable(),
             Translatable::make("Опис","description"),
             MediaField::make('Зображення', 'images')->multiple(),
@@ -107,5 +116,16 @@ class GroupRequest extends Resource
     public function actions(Request $request)
     {
         return [];
+    }
+
+
+    /**
+     * The name of menu item the resource corresponds to.
+     *
+     * @return array|\Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Translation\Translator|string|null
+     */
+    public static function label()
+    {
+        return __('Group Request');
     }
 }

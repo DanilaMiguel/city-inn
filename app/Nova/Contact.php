@@ -20,6 +20,15 @@ class Contact extends Resource
      */
     public static $model = \App\Models\Contact::class;
 
+
+    /**
+     * The name of menu Group item the resource corresponds to.
+     *
+     * @var string
+     */
+    public static $group = "Спеціальні блоки";
+
+
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
@@ -46,7 +55,7 @@ class Contact extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Translatable::make("Назва","title")->sortable(),
+            Translatable::make("Назва","title")->sortable()->required(),
             Number::make("Сортування",'sort')->default(100)->sortable(),
             Boolean::make("Активність","active"),
             BelongsToMany::make('Контакти',"items","App\Nova\ContactItem")
@@ -95,5 +104,15 @@ class Contact extends Resource
     public function actions(Request $request)
     {
         return [];
+    }
+
+    /**
+     * The name of menu item the resource corresponds to.
+     *
+     * @return array|\Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Translation\Translator|string|null
+     */
+    public static function label()
+    {
+        return __('Контакт-заголовок');
     }
 }

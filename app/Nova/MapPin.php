@@ -18,6 +18,15 @@ class MapPin extends Resource
      */
     public static $model = \App\Models\MapPin::class;
 
+
+    /**
+     * The name of menu Group item the resource corresponds to.
+     *
+     * @var string
+     */
+    public static $group = "Додатки";
+
+
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
@@ -44,14 +53,14 @@ class MapPin extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make("Назва","title")->sortable(),
+            Text::make("Назва","title")->sortable()->required(),
             Text::make("Посилання","link"),
             Number::make("Сортування",'sort')->default(100)->sortable(),
             Boolean::make("Головний",'is_center'),
             Text::make("Широта",'latitude'),
             Text::make("Довгота",'longitude'),
             Text::make("Ключ-мапа",'map_key'),
-            Number::make("Початкове приближення",'zoom'),
+            Number::make("Початкове приближення",'zoom')->required(),
 
         ];
     }
@@ -98,5 +107,15 @@ class MapPin extends Resource
     public function actions(Request $request)
     {
         return [];
+    }
+
+    /**
+     * The name of menu item the resource corresponds to.
+     *
+     * @return array|\Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Translation\Translator|string|null
+     */
+    public static function label()
+    {
+        return __('Гугл-Мапа');
     }
 }

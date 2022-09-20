@@ -19,6 +19,15 @@ class SocialNetwork extends Resource
      */
     public static $model = \App\Models\SocialNetwork::class;
 
+
+    /**
+     * The name of menu Group item the resource corresponds to.
+     *
+     * @var string
+     */
+    public static $group = "Додатки";
+
+
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
@@ -45,10 +54,10 @@ class SocialNetwork extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make("Назва","title")->sortable(),
-            Text::make("Посилання","link"),
+            Text::make("Назва","title")->sortable()->required(),
+            Text::make("Посилання","link")->required(),
             Boolean::make("Активність","active"),
-            Text::make("SVG","svg"),
+            Text::make("SVG","svg")->required(),
             Number::make("Сортування",'sort')->default(100)->sortable(),
         ];
     }
@@ -95,5 +104,15 @@ class SocialNetwork extends Resource
     public function actions(Request $request)
     {
         return [];
+    }
+
+    /**
+     * The name of menu item the resource corresponds to.
+     *
+     * @return array|\Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Translation\Translator|string|null
+     */
+    public static function label()
+    {
+        return __('Соціальні мережі');
     }
 }

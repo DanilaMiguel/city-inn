@@ -21,6 +21,15 @@ class Restaurant extends Resource
      */
     public static $model = \App\Models\Restaurant::class;
 
+
+    /**
+     * The name of menu Group item the resource corresponds to.
+     *
+     * @var string
+     */
+    public static $group = "Сторінки";
+
+
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
@@ -47,7 +56,7 @@ class Restaurant extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Translatable::make("Назва","title"),
+            Translatable::make("Назва","title")->required(),
             Translatable::make("Опис","description"),
             Number::make("Сортування",'sort')->default(100)->sortable(),
             Boolean::make("Активність","active"),
@@ -106,5 +115,16 @@ class Restaurant extends Resource
     public function actions(Request $request)
     {
         return [];
+    }
+
+
+    /**
+     * The name of menu item the resource corresponds to.
+     *
+     * @return array|\Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Translation\Translator|string|null
+     */
+    public static function label()
+    {
+        return __('Ресторан');
     }
 }

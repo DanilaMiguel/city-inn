@@ -21,6 +21,15 @@ class Lobby extends Resource
      */
     public static $model = \App\Models\Lobby::class;
 
+
+    /**
+     * The name of menu Group item the resource corresponds to.
+     *
+     * @var string
+     */
+    public static $group = "Сторінки";
+
+
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
@@ -47,13 +56,13 @@ class Lobby extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Translatable::make("Назва","title"),
+            Translatable::make("Назва","title")->required(),
             Translatable::make("Опис","description"),
             Number::make("Сортування",'sort')->default(100)->sortable(),
             Boolean::make("Активність","active"),
-            MediaField::make('Зображення', 'image'),
-            MediaField::make('Планшетне зображення', 'tablet_image'),
-            MediaField::make('Мобільне зображення', 'mobile_image'),
+            MediaField::make('Зображення', 'image')->required(),
+            MediaField::make('Планшетне зображення', 'tablet_image')->required(),
+            MediaField::make('Мобільне зображення', 'mobile_image')->required(),
             Translatable::make("Текст кнопки меню","menu_text"),
             Text::make("Посилання кнопки меню","menu_link"),
             Translatable::make("Текст кнопки бронювання","book_text"),
@@ -104,5 +113,16 @@ class Lobby extends Resource
     public function actions(Request $request)
     {
         return [];
+    }
+
+
+    /**
+     * The name of menu item the resource corresponds to.
+     *
+     * @return array|\Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Translation\Translator|string|null
+     */
+    public static function label()
+    {
+        return __('Лоббі-бар');
     }
 }

@@ -22,6 +22,15 @@ class ConferenceService extends Resource
      */
     public static $model = \App\Models\ConferenceService::class;
 
+
+    /**
+     * The name of menu Group item the resource corresponds to.
+     *
+     * @var string
+     */
+    public static $group = "Генеровані сторінки";
+
+
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
@@ -48,41 +57,41 @@ class ConferenceService extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Translatable::make("Заголовок","title")->sortable(),
-            Translatable::make("Опис","description"),
-            Text::make("Код", "code"),
-            MediaField::make("Головне зображення","head_image"),
-            MediaField::make("Головне планшетне зображення","tablet_head_image"),
-            MediaField::make("Головне мобільне зображення","mobile_head_image"),
+            Translatable::make("Заголовок","title")->sortable()->required(),
+            Translatable::make("Опис","description")->required(),
+            Text::make("Код", "code")->required(),
+            MediaField::make("Головне зображення","head_image")->required(),
+            MediaField::make("Головне планшетне зображення","tablet_head_image")->required(),
+            MediaField::make("Головне мобільне зображення","mobile_head_image")->required(),
 
             Heading::make('Інформація розділу'),
-            Translatable::make("Заголовок на сторінці розділу","section_title"),
-            Translatable::make("Опис на сторінці розділу","section_description"),
-            MediaField::make('Зображення на сторінці розділу', 'preview_image'),
-            MediaField::make('Планшетне зображення на сторінці розділу', 'tablet_preview_image'),
-            MediaField::make('Мобільне зображення на сторінці розділу', 'mobile_preview_image'),
+            Translatable::make("Заголовок на сторінці розділу","section_title")->required(),
+            Translatable::make("Опис на сторінці розділу","section_description")->required(),
+            MediaField::make('Зображення на сторінці розділу', 'preview_image')->required(),
+            MediaField::make('Планшетне зображення на сторінці розділу', 'tablet_preview_image')->required(),
+            MediaField::make('Мобільне зображення на сторінці розділу', 'mobile_preview_image')->required(),
 
             Heading::make('SEO інформація'),
-            Translatable::make("SEO Заголовок","seo_title"),
-            Translatable::make("SEO Опис","seo_description"),
+            Translatable::make("SEO Заголовок","seo_title")->required(),
+            Translatable::make("SEO Опис","seo_description")->required(),
 
             Heading::make('Загальна інформація'),
             Boolean::make("Активність","active"),
             Number::make("Сортування",'sort')->default(100)->sortable(),
-            Translatable::make('Текст кнопки замовлення' , "button_text"),
-            Text::make('Посилання кнопки замовлення' , "button_link"),
+            Translatable::make('Текст кнопки замовлення' , "button_text")->required(),
+            Text::make('Посилання кнопки замовлення' , "button_link")->required(),
 
 
-            Translatable::make('Заголовок блоку "Чому ми?"' , "why_title"),
-            MediaField::make('Зображення блоку "Чому ми?"', 'why_images')->multiple(),
-            MediaField::make('Планшетне зображення блоку "Чому ми?"', 'tablet_why_images')->multiple(),
-            MediaField::make('Мобільне зображення блоку "Чому ми?"', 'mobile_why_images')->multiple(),
+            Translatable::make('Заголовок блоку "Чому ми?"' , "why_title")->required(),
+            MediaField::make('Зображення блоку "Чому ми?"', 'why_images')->multiple()->required(),
+            MediaField::make('Планшетне зображення блоку "Чому ми?"', 'tablet_why_images')->multiple()->required(),
+            MediaField::make('Мобільне зображення блоку "Чому ми?"', 'mobile_why_images')->multiple()->required(),
 
-            Translatable::make('Заголовок блока "Паркінг"' , "park_title"),
-            Translatable::make('Опис блоку "Паркінг"' , "park_description"),
-            MediaField::make('Зображення блоку "Паркінг"', 'park_image'),
-            MediaField::make('Планшетне зображення блоку "Паркінг"', 'tablet_park_image'),
-            MediaField::make('Мобільне зображення блоку "Паркінг"', 'mobile_park_image'),
+            Translatable::make('Заголовок блока "Паркінг"' , "park_title")->required(),
+            Translatable::make('Опис блоку "Паркінг"' , "park_description")->required(),
+            MediaField::make('Зображення блоку "Паркінг"', 'park_image')->required(),
+            MediaField::make('Планшетне зображення блоку "Паркінг"', 'tablet_park_image')->required(),
+            MediaField::make('Мобільне зображення блоку "Паркінг"', 'mobile_park_image')->required(),
 
 
             BelongsToMany::make('Іконки',"icons","App\Nova\Icon"),
@@ -136,5 +145,15 @@ class ConferenceService extends Resource
     public function actions(Request $request)
     {
         return [];
+    }
+
+    /**
+     * The name of menu item the resource corresponds to.
+     *
+     * @return array|\Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Translation\Translator|string|null
+     */
+    public static function label()
+    {
+        return __('Конференц сервіси');
     }
 }

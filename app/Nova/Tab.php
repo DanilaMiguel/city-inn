@@ -21,6 +21,15 @@ class Tab extends Resource
      */
     public static $model = \App\Models\Tab::class;
 
+
+    /**
+     * The name of menu Group item the resource corresponds to.
+     *
+     * @var string
+     */
+    public static $group = "Додатки";
+
+
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
@@ -47,8 +56,9 @@ class Tab extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make("Назва","title"),
-            Translatable::make("Опис","text"),
+            Text::make("Назва","title")->required(),
+            Translatable::make("Опис","text")->required(),
+            Translatable::make("Додатковий текст","text_adder"),
             Number::make("Сортування",'sort')->default(100)->sortable()
         ];
     }
@@ -95,5 +105,15 @@ class Tab extends Resource
     public function actions(Request $request)
     {
         return [];
+    }
+
+    /**
+     * The name of menu item the resource corresponds to.
+     *
+     * @return array|\Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Translation\Translator|string|null
+     */
+    public static function label()
+    {
+        return __('Таби');
     }
 }

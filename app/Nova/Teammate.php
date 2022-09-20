@@ -21,6 +21,15 @@ class Teammate extends Resource
      */
     public static $model = \App\Models\Teammate::class;
 
+
+    /**
+     * The name of menu Group item the resource corresponds to.
+     *
+     * @var string
+     */
+    public static $group = "Спеціальні блоки";
+
+
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
@@ -47,11 +56,11 @@ class Teammate extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Translatable::make("Назва","title")->sortable(),
-            Translatable::make("Опис","description"),
-            MediaField::make('Зображення', 'image'),
-            MediaField::make('Планшетне зображення', 'tablet_image'),
-            MediaField::make('Мобільне зображення', 'mobile_image'),
+            Translatable::make("Назва","title")->sortable()->required(),
+            Translatable::make("Опис","description")->required(),
+            MediaField::make('Зображення', 'image')->required(),
+            MediaField::make('Планшетне зображення', 'tablet_image')->required(),
+            MediaField::make('Мобільне зображення', 'mobile_image')->required(),
             Number::make("Сортування",'sort')->default(100)->sortable(),
             Boolean::make("Активність",'active'),
             BelongsToMany::make('Контакти',"contacts","App\Nova\ContactItem")
@@ -100,5 +109,15 @@ class Teammate extends Resource
     public function actions(Request $request)
     {
         return [];
+    }
+
+    /**
+     * The name of menu item the resource corresponds to.
+     *
+     * @return array|\Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Translation\Translator|string|null
+     */
+    public static function label()
+    {
+        return __('Команда');
     }
 }

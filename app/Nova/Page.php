@@ -21,6 +21,15 @@ class Page extends Resource
      */
     public static $model = \App\Models\Page::class;
 
+
+    /**
+     * The name of menu Group item the resource corresponds to.
+     *
+     * @var string
+     */
+    public static $group = "Main";
+
+
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
@@ -47,17 +56,17 @@ class Page extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Translatable::make("Заголовок","title")->sortable(),
+            Translatable::make("Заголовок","title")->sortable()->required(),
             Translatable::make("Підзаголовок","subtitle")->sortable(),
-            Translatable::make("Опис","description")->sortable(),
+            Translatable::make("Опис","description")->sortable()->required(),
             Number::make("Сортування",'sort')->default(100)->sortable(),
-            MediaField::make('Головне зображення', 'head_image'),
-            MediaField::make('Головне планшетне зображення', 'tablet_head_image'),
-            MediaField::make('Головне мобільне зображення', 'mobile_head_image'),
+            MediaField::make('Головне зображення', 'head_image')->required(),
+            MediaField::make('Головне планшетне зображення', 'tablet_head_image')->required(),
+            MediaField::make('Головне мобільне зображення', 'mobile_head_image')->required(),
 
             Heading::make('SEO інформація'),
-            Translatable::make("SEO title", "seo_title"),
-            Translatable::make("SEO description","seo_description"),
+            Translatable::make("SEO title", "seo_title")->required(),
+            Translatable::make("SEO description","seo_description")->required(),
 
             Heading::make('Інформацію розділу'),
             Translatable::make("Заголовок розділу на головній","section_title"),
@@ -119,5 +128,16 @@ class Page extends Resource
     public function actions(Request $request)
     {
         return [];
+    }
+
+
+    /**
+     * The name of menu item the resource corresponds to.
+     *
+     * @return array|\Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Translation\Translator|string|null
+     */
+    public static function label()
+    {
+        return __('Сторінки та розділи');
     }
 }

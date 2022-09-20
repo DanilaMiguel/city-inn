@@ -21,6 +21,15 @@ class StarFit extends Resource
      */
     public static $model = \App\Models\StarFit::class;
 
+
+    /**
+     * The name of menu Group item the resource corresponds to.
+     *
+     * @var string
+     */
+    public static $group = "Сторінки";
+
+
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
@@ -47,7 +56,7 @@ class StarFit extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Translatable::make("Заголовок","title")->sortable(),
+            Translatable::make("Заголовок","title")->sortable()->required(),
             Translatable::make("Опис","text_top"),
             Translatable::make("Додатковий текст","text_bottom"),
             MediaField::make('Зображення', 'images')->multiple(),
@@ -106,5 +115,16 @@ class StarFit extends Resource
     public function actions(Request $request)
     {
         return [];
+    }
+
+
+    /**
+     * The name of menu item the resource corresponds to.
+     *
+     * @return array|\Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Translation\Translator|string|null
+     */
+    public static function label()
+    {
+        return __('StarFit');
     }
 }

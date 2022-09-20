@@ -7,6 +7,8 @@ use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use MrMonat\Translatable\Translatable;
+
 
 class FooterItem extends Resource
 {
@@ -17,12 +19,21 @@ class FooterItem extends Resource
      */
     public static $model = \App\Models\FooterItem::class;
 
+
+    /**
+     * The name of menu Group item the resource corresponds to.
+     *
+     * @var string
+     */
+    public static $group = "Спеціальні блоки";
+
+
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
      * @var string
      */
-    public static $title = 'title';
+    public static $title = 'name';
 
     /**
      * The columns that should be searched.
@@ -43,7 +54,8 @@ class FooterItem extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make("Назва","title")->sortable(),
+            Text::make("Назва","name")->sortable()->required(),
+            Translatable::make("Заголовок","title")->required(),
             Text::make("Посилання","link"),
             Number::make("Сортування",'sort')->default(100)->sortable()
         ];
@@ -91,5 +103,15 @@ class FooterItem extends Resource
     public function actions(Request $request)
     {
         return [];
+    }
+
+    /**
+     * The name of menu item the resource corresponds to.
+     *
+     * @return array|\Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Translation\Translator|string|null
+     */
+    public static function label()
+    {
+        return __('Футер-пункт');
     }
 }

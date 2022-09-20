@@ -20,6 +20,15 @@ class MainMenu extends Resource
      */
     public static $model = \App\Models\MainMenu::class;
 
+
+    /**
+     * The name of menu Group item the resource corresponds to.
+     *
+     * @var string
+     */
+    public static $group = "Спеціальні блоки";
+
+
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
@@ -46,12 +55,12 @@ class MainMenu extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Translatable::make("Заголовок","title"),
+            Translatable::make("Заголовок","title")->required(),
             Text::make("Посилання","link"),
             Boolean::make("Default","is_default"),
-            MediaField::make('Зображення фону', 'background_image'),
-            MediaField::make('Планшетне зображення фону', 'tablet_background_image'),
-            MediaField::make('Мобільне зображення фону', 'mobile_background_image'),
+            MediaField::make('Зображення фону', 'background_image')->required(),
+            MediaField::make('Планшетне зображення фону', 'tablet_background_image')->required(),
+            MediaField::make('Мобільне зображення фону', 'mobile_background_image')->required(),
             Number::make("Сортування", "sort")->default(100)->sortable()
         ];
     }
@@ -98,5 +107,15 @@ class MainMenu extends Resource
     public function actions(Request $request)
     {
         return [];
+    }
+
+    /**
+     * The name of menu item the resource corresponds to.
+     *
+     * @return array|\Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Translation\Translator|string|null
+     */
+    public static function label()
+    {
+        return __('Головне меню');
     }
 }

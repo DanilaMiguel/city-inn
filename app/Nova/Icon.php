@@ -19,6 +19,15 @@ class Icon extends Resource
      */
     public static $model = \App\Models\Icon::class;
 
+
+    /**
+     * The name of menu Group item the resource corresponds to.
+     *
+     * @var string
+     */
+    public static $group = "Додатки";
+
+
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
@@ -45,8 +54,8 @@ class Icon extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Translatable::make('Назва','title'),
-            MediaField::make('Іконка', 'icon'),
+            Translatable::make('Назва','title')->required(),
+            MediaField::make('Іконка', 'icon')->required(),
 
         ];
     }
@@ -93,5 +102,15 @@ class Icon extends Resource
     public function actions(Request $request)
     {
         return [];
+    }
+
+    /**
+     * The name of menu item the resource corresponds to.
+     *
+     * @return array|\Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Translation\Translator|string|null
+     */
+    public static function label()
+    {
+        return __('Іконки');
     }
 }

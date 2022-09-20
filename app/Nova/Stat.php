@@ -17,6 +17,15 @@ class Stat extends Resource
      */
     public static $model = \App\Models\Stat::class;
 
+
+    /**
+     * The name of menu Group item the resource corresponds to.
+     *
+     * @var string
+     */
+    public static $group = "Спеціальні блоки";
+
+
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
@@ -43,9 +52,9 @@ class Stat extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Translatable::make("Текст верхній","text_top"),
-            Translatable::make("Текст нижній","text_bottom"),
-            Number::make("Кількість",'number'),
+            Translatable::make("Текст верхній","text_top")->required(),
+            Translatable::make("Текст нижній","text_bottom")->required(),
+            Number::make("Кількість",'number')->required(),
             Number::make("Сортування",'sort')->default(100)->sortable()
         ];
     }
@@ -92,5 +101,15 @@ class Stat extends Resource
     public function actions(Request $request)
     {
         return [];
+    }
+
+    /**
+     * The name of menu item the resource corresponds to.
+     *
+     * @return array|\Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Translation\Translator|string|null
+     */
+    public static function label()
+    {
+        return __('Статистика');
     }
 }

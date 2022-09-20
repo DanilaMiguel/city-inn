@@ -21,6 +21,15 @@ class SmartOffer extends Resource
      */
     public static $model = \App\Models\SmartOffer::class;
 
+
+    /**
+     * The name of menu Group item the resource corresponds to.
+     *
+     * @var string
+     */
+    public static $group = "Сторінки";
+
+
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
@@ -47,12 +56,12 @@ class SmartOffer extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Translatable::make("Заголовок","title")->sortable(),
+            Translatable::make("Заголовок","title")->sortable()->required(),
             Translatable::make("Опис","text_top"),
             Translatable::make("Додатковий текст","text_bottom"),
-            MediaField::make('Зображення', 'image'),
-            MediaField::make('Планшетне зображення', 'tablet_image'),
-            MediaField::make('Мобільне зображення', 'mobile_image'),
+            MediaField::make('Зображення', 'image')->required(),
+            MediaField::make('Планшетне зображення', 'tablet_image')->required(),
+            MediaField::make('Мобільне зображення', 'mobile_image')->required(),
             Number::make("Сортування",'sort')->default(100)->sortable(),
             Boolean::make("Активність","active"),
             Translatable::make("Текст кнопки бронювання","book_text"),
@@ -106,5 +115,16 @@ class SmartOffer extends Resource
     public function actions(Request $request)
     {
         return [];
+    }
+
+
+    /**
+     * The name of menu item the resource corresponds to.
+     *
+     * @return array|\Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Translation\Translator|string|null
+     */
+    public static function label()
+    {
+        return __('Розумні пропозиції');
     }
 }

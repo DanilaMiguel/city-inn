@@ -19,6 +19,15 @@ class Address extends Resource
      */
     public static $model = \App\Models\Address::class;
 
+
+    /**
+     * The name of menu Group item the resource corresponds to.
+     *
+     * @var string
+     */
+    public static $group = "Додатки";
+
+
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
@@ -45,7 +54,7 @@ class Address extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Translatable::make("Адреса",'text'),
+            Translatable::make("Адреса",'text')->required(),
             Text::make("Посилання","link"),
             Number::make("Сортування",'sort')->default(100)->sortable(),
             Boolean::make("Активність","active"),
@@ -94,5 +103,15 @@ class Address extends Resource
     public function actions(Request $request)
     {
         return [];
+    }
+
+    /**
+     * The name of menu item the resource corresponds to.
+     *
+     * @return array|\Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Translation\Translator|string|null
+     */
+    public static function label()
+    {
+        return __('Адреси');
     }
 }

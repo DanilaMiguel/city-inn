@@ -17,6 +17,15 @@ class User extends Resource
      */
     public static $model = \App\Models\User::class;
 
+
+    /**
+     * The name of menu Group item the resource corresponds to.
+     *
+     * @var string
+     */
+    public static $group = "Користувачі";
+
+
     /**
      * The single value that should be used to represent the resource when being displayed.
      *

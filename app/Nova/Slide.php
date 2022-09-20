@@ -20,6 +20,15 @@ class Slide extends Resource
      */
     public static $model = \App\Models\Slide::class;
 
+
+    /**
+     * The name of menu Group item the resource corresponds to.
+     *
+     * @var string
+     */
+    public static $group = "Додатки";
+
+
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
@@ -46,15 +55,15 @@ class Slide extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make("Назва","title")->sortable(),
+            Text::make("Назва","title")->sortable()->required(),
             Translatable::make("Заголовок","header"),
             Translatable::make("Опис","description"),
             Translatable::make("Додатковий текст","description_adder"),
             Translatable::make("Текст кнопки","button_text"),
             Text::make("Посилання кнопки","button_link"),
-            MediaField::make('Зображення', 'image'),
-            MediaField::make('Планшетне зображення', 'tablet_image'),
-            MediaField::make('Мобільне зображення', 'mobile_image'),
+            MediaField::make('Зображення', 'image')->required(),
+            MediaField::make('Планшетне зображення', 'tablet_image')->required(),
+            MediaField::make('Мобільне зображення', 'mobile_image')->required(),
             Number::make("Сортування",'sort')->default(100)->sortable(),
             Text::make("Початок роботи","work_start"),
             Text::make("Закінчення роботи","work_end"),
@@ -105,5 +114,15 @@ class Slide extends Resource
     public function actions(Request $request)
     {
         return [];
+    }
+
+    /**
+     * The name of menu item the resource corresponds to.
+     *
+     * @return array|\Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Translation\Translator|string|null
+     */
+    public static function label()
+    {
+        return __('Слайди');
     }
 }

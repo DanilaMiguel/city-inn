@@ -21,6 +21,15 @@ class Sitting extends Resource
      */
     public static $model = \App\Models\Sitting::class;
 
+
+    /**
+     * The name of menu Group item the resource corresponds to.
+     *
+     * @var string
+     */
+    public static $group = "Додатки";
+
+
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
@@ -47,15 +56,15 @@ class Sitting extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Translatable::make("Заголовок","title")->sortable(),
-            MediaField::make("Головне SVG","main_svg"),
-            MediaField::make("Головне зображення","image"),
-            MediaField::make("Головне планшетне зображення","tablet_image"),
-            MediaField::make("Головне мобільне зображення","mobile_image"),
+            Translatable::make("Заголовок","title")->sortable()->required(),
+            MediaField::make("Головне SVG","main_svg")->required(),
+            MediaField::make("Головне зображення","image")->required(),
+            MediaField::make("Головне планшетне зображення","tablet_image")->required(),
+            MediaField::make("Головне мобільне зображення","mobile_image")->required(),
             Boolean::make("Активність","active"),
             Number::make("Сортування",'sort')->default(100)->sortable(),
-            Translatable::make("Текст кнопки", "button_text"),
-            Text::make("Посилання кнопки", "button_link"),
+            Translatable::make("Текст кнопки", "button_text")->required(),
+            Text::make("Посилання кнопки", "button_link")->required(),
             BelongsToMany::make('Іконки',"icons","App\Nova\Icon")
         ];
     }
@@ -102,5 +111,15 @@ class Sitting extends Resource
     public function actions(Request $request)
     {
         return [];
+    }
+
+    /**
+     * The name of menu item the resource corresponds to.
+     *
+     * @return array|\Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Translation\Translator|string|null
+     */
+    public static function label()
+    {
+        return __('Розсадки');
     }
 }
