@@ -27,14 +27,14 @@ class ConferenceController extends Controller
                 "language"  => App::getLocale(),
                 "image" => array(
                     "webp" => array(
-                        "mobile" => "https://admin.city-inn.com.ua/storage/" . $image->path . $image->webp_name,
-                        "tablet" => "https://admin.city-inn.com.ua/storage/" . $tabletImage->path . $tabletImage->webp_name,
-                        "desktop" => "https://admin.city-inn.com.ua/storage/" . $image->path . $image->webp_name,
+                        "mobile" => $_SERVER["APP_URL"]."/storage/" . $image->path . $image->webp_name,
+                        "tablet" => $_SERVER["APP_URL"]."/storage/" . $tabletImage->path . $tabletImage->webp_name,
+                        "desktop" => $_SERVER["APP_URL"]."/storage/" . $image->path . $image->webp_name,
                     ),
                     "jpg" => array(
-                        "mobile" => "https://admin.city-inn.com.ua/storage/" . $mobileImage->path . $mobileImage->file_name,
-                        "tablet" => "https://admin.city-inn.com.ua/storage/" . $tabletImage->path . $tabletImage->file_name,
-                        "desktop" => "https://admin.city-inn.com.ua/storage/" . $image->path . $image->file_name,
+                        "mobile" => $_SERVER["APP_URL"]."/storage/" . $mobileImage->path . $mobileImage->file_name,
+                        "tablet" => $_SERVER["APP_URL"]."/storage/" . $tabletImage->path . $tabletImage->file_name,
+                        "desktop" => $_SERVER["APP_URL"]."/storage/" . $image->path . $image->file_name,
                     )
                 ),
             );
@@ -71,14 +71,14 @@ class ConferenceController extends Controller
                             ),
                             "image" => array(
                                 "webp" => array(
-                                    "mobile" => "https://admin.city-inn.com.ua/storage/" . $mobileImage->path . $mobileImage->webp_name,
-                                    "tablet" => "https://admin.city-inn.com.ua/storage/" . $tabletImage->path . $tabletImage->webp_name,
-                                    "desktop" => "https://admin.city-inn.com.ua/storage/" . $image->path . $image->webp_name,
+                                    "mobile" => $_SERVER["APP_URL"]."/storage/" . $mobileImage->path . $mobileImage->webp_name,
+                                    "tablet" => $_SERVER["APP_URL"]."/storage/" . $tabletImage->path . $tabletImage->webp_name,
+                                    "desktop" => $_SERVER["APP_URL"]."/storage/" . $image->path . $image->webp_name,
                                 ),
                                 "jpg" => array(
-                                    "mobile" => "https://admin.city-inn.com.ua/storage/" . $mobileImage->path . $mobileImage->file_name,
-                                    "tablet" => "https://admin.city-inn.com.ua/storage/" . $tabletImage->path . $tabletImage->file_name,
-                                    "desktop" => "https://admin.city-inn.com.ua/storage/" . $image->path . $image->file_name,
+                                    "mobile" => $_SERVER["APP_URL"]."/storage/" . $mobileImage->path . $mobileImage->file_name,
+                                    "tablet" => $_SERVER["APP_URL"]."/storage/" . $tabletImage->path . $tabletImage->file_name,
+                                    "desktop" => $_SERVER["APP_URL"]."/storage/" . $image->path . $image->file_name,
                                 )
                             )
                         ));
@@ -120,14 +120,14 @@ class ConferenceController extends Controller
                         $slideInfo = array();
                         $slideInfo["image"] = array(
                             "webp" => array(
-                                "mobile" => "https://admin.city-inn.com.ua/storage/" . $mobileImage->path . $mobileImage->webp_name,
-                                "tablet" => "https://admin.city-inn.com.ua/storage/" . $tabletImage->path . $tabletImage->webp_name,
-                                "desktop" => "https://admin.city-inn.com.ua/storage/" . $image->path . $image->webp_name,
+                                "mobile" => $_SERVER["APP_URL"]."/storage/" . $mobileImage->path . $mobileImage->webp_name,
+                                "tablet" => $_SERVER["APP_URL"]."/storage/" . $tabletImage->path . $tabletImage->webp_name,
+                                "desktop" => $_SERVER["APP_URL"]."/storage/" . $image->path . $image->webp_name,
                             ),
                             "jpg" => array(
-                                "mobile" => "https://admin.city-inn.com.ua/storage/" . $mobileImage->path . $mobileImage->file_name,
-                                "tablet" => "https://admin.city-inn.com.ua/storage/" . $tabletImage->path . $tabletImage->file_name,
-                                "desktop" => "https://admin.city-inn.com.ua/storage/" . $image->path . $image->file_name,
+                                "mobile" => $_SERVER["APP_URL"]."/storage/" . $mobileImage->path . $mobileImage->file_name,
+                                "tablet" => $_SERVER["APP_URL"]."/storage/" . $tabletImage->path . $tabletImage->file_name,
+                                "desktop" => $_SERVER["APP_URL"]."/storage/" . $image->path . $image->file_name,
                             )
                         );
                         if($slide->header)
@@ -148,7 +148,7 @@ class ConferenceController extends Controller
                             $image = $imageObject->resolveResponseValue($service->icon);
                             array_push($services,array(
                                 "title" =>  $service->title,
-                                "icon"  =>  "/storage/" . $image->path . $image->file_name
+                                "icon"  =>  $_SERVER["APP_URL"]."/storage/" . $image->path . $image->file_name
                             ));
                         }
                         if($services)
@@ -169,14 +169,14 @@ class ConferenceController extends Controller
                             if($image)
                                 array_push($images, array(
                                     "webp" => array(
-                                        "mobile" => "https://admin.city-inn.com.ua/storage/" . $mobileImage->path . $mobileImage->webp_name,
-                                        "tablet" => "https://admin.city-inn.com.ua/storage/" . $tabletImage->path . $tabletImage->webp_name,
-                                        "desktop" => "https://admin.city-inn.com.ua/storage/" . $image->path . $image->webp_name,
+                                        "mobile" => $_SERVER["APP_URL"]."/storage/" . $mobileImage->path . $mobileImage->webp_name,
+                                        "tablet" => $_SERVER["APP_URL"]."/storage/" . $tabletImage->path . $tabletImage->webp_name,
+                                        "desktop" => $_SERVER["APP_URL"]."/storage/" . $image->path . $image->webp_name,
                                     ),
                                     "jpg" => array(
-                                        "mobile" => "https://admin.city-inn.com.ua/storage/" . $mobileImage->path . $mobileImage->file_name,
-                                        "tablet" => "https://admin.city-inn.com.ua/storage/" . $tabletImage->path . $tabletImage->file_name,
-                                        "desktop" => "https://admin.city-inn.com.ua/storage/" . $image->path . $image->file_name,
+                                        "mobile" => $_SERVER["APP_URL"]."/storage/" . $mobileImage->path . $mobileImage->file_name,
+                                        "tablet" => $_SERVER["APP_URL"]."/storage/" . $tabletImage->path . $tabletImage->file_name,
+                                        "desktop" => $_SERVER["APP_URL"]."/storage/" . $image->path . $image->file_name,
                                     )
                                 ));
                         }
@@ -224,14 +224,14 @@ class ConferenceController extends Controller
                 "language"  => App::getLocale(),
                 "image" => array(
                     "webp" => array(
-                        "mobile" => "https://admin.city-inn.com.ua/storage/" . $mobileImage->path . $mobileImage->webp_name,
-                        "tablet" => "https://admin.city-inn.com.ua/storage/" . $tabletImage->path . $tabletImage->webp_name,
-                        "desktop" => "https://admin.city-inn.com.ua/storage/" . $image->path . $image->webp_name,
+                        "mobile" => $_SERVER["APP_URL"]."/storage/" . $mobileImage->path . $mobileImage->webp_name,
+                        "tablet" => $_SERVER["APP_URL"]."/storage/" . $tabletImage->path . $tabletImage->webp_name,
+                        "desktop" => $_SERVER["APP_URL"]."/storage/" . $image->path . $image->webp_name,
                     ),
                     "jpg" => array(
-                        "mobile" => "https://admin.city-inn.com.ua/storage/" . $mobileImage->path . $mobileImage->file_name,
-                        "tablet" => "https://admin.city-inn.com.ua/storage/" . $tabletImage->path . $tabletImage->file_name,
-                        "desktop" => "https://admin.city-inn.com.ua/storage/" . $image->path . $image->file_name,
+                        "mobile" => $_SERVER["APP_URL"]."/storage/" . $mobileImage->path . $mobileImage->file_name,
+                        "tablet" => $_SERVER["APP_URL"]."/storage/" . $tabletImage->path . $tabletImage->file_name,
+                        "desktop" => $_SERVER["APP_URL"]."/storage/" . $image->path . $image->file_name,
                     )
                 ),
                 "sections" => array()
@@ -244,7 +244,7 @@ class ConferenceController extends Controller
                 $image = $imageObject->resolveResponseValue($icon->icon);
                 array_push($services,array(
                     "title" =>  $icon->title,
-                    "icon"  =>  "https://admin.city-inn.com.ua/storage/" . $image->path . $image->file_name
+                    "icon"  =>  $_SERVER["APP_URL"]."/storage/" . $image->path . $image->file_name
                 ));
             }
             $image = $imageObject->resolveResponseValue($service->preview_image);
@@ -255,14 +255,14 @@ class ConferenceController extends Controller
                 "description" => $service->description,
                 "image" => array(
                     "webp" => array(
-                        "mobile" => "https://admin.city-inn.com.ua/storage/" . $mobileImage->path . $mobileImage->webp_name,
-                        "tablet" => "https://admin.city-inn.com.ua/storage/" . $tabletImage->path . $tabletImage->webp_name,
-                        "desktop" => "https://admin.city-inn.com.ua/storage/" . $image->path . $image->webp_name,
+                        "mobile" => $_SERVER["APP_URL"]."/storage/" . $mobileImage->path . $mobileImage->webp_name,
+                        "tablet" => $_SERVER["APP_URL"]."/storage/" . $tabletImage->path . $tabletImage->webp_name,
+                        "desktop" => $_SERVER["APP_URL"]."/storage/" . $image->path . $image->webp_name,
                     ),
                     "jpg" => array(
-                        "mobile" => "https://admin.city-inn.com.ua/storage/" . $mobileImage->path . $mobileImage->file_name,
-                        "tablet" => "https://admin.city-inn.com.ua/storage/" . $tabletImage->path . $tabletImage->file_name,
-                        "desktop" => "https://admin.city-inn.com.ua/storage/" . $image->path . $image->file_name,
+                        "mobile" => $_SERVER["APP_URL"]."/storage/" . $mobileImage->path . $mobileImage->file_name,
+                        "tablet" => $_SERVER["APP_URL"]."/storage/" . $tabletImage->path . $tabletImage->file_name,
+                        "desktop" => $_SERVER["APP_URL"]."/storage/" . $image->path . $image->file_name,
                     )
                 ),
                 "services" => $services,
@@ -283,7 +283,7 @@ class ConferenceController extends Controller
                     $image = $imageObject->resolveResponseValue($icon->icon);
                     array_push($icons,array(
                         "title" =>  $icon->title,
-                        "icon"  =>  "https://admin.city-inn.com.ua/storage/" . $image->path . $image->file_name
+                        "icon"  =>  $_SERVER["APP_URL"]."/storage/" . $image->path . $image->file_name
                     ));
                 }
 
@@ -294,17 +294,17 @@ class ConferenceController extends Controller
 
                 array_push($sittings, array(
                     "title" => $sitting->title,
-                    "SVG"   => "/storage/" . $svg->path . $svg->file_name,
+                    "SVG"   => $_SERVER["APP_URL"]."/storage/" . $svg->path . $svg->file_name,
                     "image" => array(
                         "webp" => array(
-                            "mobile" => "https://admin.city-inn.com.ua/storage/" . $mobileImage->path . $mobileImage->webp_name,
-                            "tablet" => "https://admin.city-inn.com.ua/storage/" . $tabletImage->path . $tabletImage->webp_name,
-                            "desktop" => "https://admin.city-inn.com.ua/storage/" . $image->path . $image->webp_name,
+                            "mobile" => $_SERVER["APP_URL"]."/storage/" . $mobileImage->path . $mobileImage->webp_name,
+                            "tablet" => $_SERVER["APP_URL"]."/storage/" . $tabletImage->path . $tabletImage->webp_name,
+                            "desktop" => $_SERVER["APP_URL"]."/storage/" . $image->path . $image->webp_name,
                         ),
                         "jpg" => array(
-                            "mobile" => "https://admin.city-inn.com.ua/storage/" . $mobileImage->path . $mobileImage->file_name,
-                            "tablet" => "https://admin.city-inn.com.ua/storage/" . $tabletImage->path . $tabletImage->file_name,
-                            "desktop" => "https://admin.city-inn.com.ua/storage/" . $image->path . $image->file_name,
+                            "mobile" => $_SERVER["APP_URL"]."/storage/" . $mobileImage->path . $mobileImage->file_name,
+                            "tablet" => $_SERVER["APP_URL"]."/storage/" . $tabletImage->path . $tabletImage->file_name,
+                            "desktop" => $_SERVER["APP_URL"]."/storage/" . $image->path . $image->file_name,
                         )
                     ),
                     "button" => array(
@@ -329,7 +329,7 @@ class ConferenceController extends Controller
                     $image = $imageObject->resolveResponseValue($icon->icon);
                     array_push($icons,array(
                         "title" =>  $icon->title,
-                        "icon"  =>  "https://admin.city-inn.com.ua/storage/" . $image->path . $image->file_name
+                        "icon"  =>  $_SERVER["APP_URL"]."/storage/" . $image->path . $image->file_name
                     ));
                 }
 
@@ -345,14 +345,14 @@ class ConferenceController extends Controller
                     "price"    => ($offer->price) ? $offer->price : "FREE",
                     "image" => array(
                         "webp" => array(
-                            "mobile" => "https://admin.city-inn.com.ua/storage/" . $mobileImage->path . $mobileImage->webp_name,
-                            "tablet" => "https://admin.city-inn.com.ua/storage/" . $tabletImage->path . $tabletImage->webp_name,
-                            "desktop" => "https://admin.city-inn.com.ua/storage/" . $image->path . $image->webp_name,
+                            "mobile" => $_SERVER["APP_URL"]."/storage/" . $mobileImage->path . $mobileImage->webp_name,
+                            "tablet" => $_SERVER["APP_URL"]."/storage/" . $tabletImage->path . $tabletImage->webp_name,
+                            "desktop" => $_SERVER["APP_URL"]."/storage/" . $image->path . $image->webp_name,
                         ),
                         "jpg" => array(
-                            "mobile" => "https://admin.city-inn.com.ua/storage/" . $mobileImage->path . $mobileImage->file_name,
-                            "tablet" => "https://admin.city-inn.com.ua/storage/" . $tabletImage->path . $tabletImage->file_name,
-                            "desktop" => "https://admin.city-inn.com.ua/storage/" . $image->path . $image->file_name,
+                            "mobile" => $_SERVER["APP_URL"]."/storage/" . $mobileImage->path . $mobileImage->file_name,
+                            "tablet" => $_SERVER["APP_URL"]."/storage/" . $tabletImage->path . $tabletImage->file_name,
+                            "desktop" => $_SERVER["APP_URL"]."/storage/" . $image->path . $image->file_name,
                         )
                     ),
                     "button" => array(
@@ -384,14 +384,14 @@ class ConferenceController extends Controller
                     "price"    => ($food->price) ? $food->price : "FREE",
                     "image" => array(
                         "webp" => array(
-                            "mobile" => "https://admin.city-inn.com.ua/storage/" . $mobileImage->path . $mobileImage->webp_name,
-                            "tablet" => "https://admin.city-inn.com.ua/storage/" . $tabletImage->path . $tabletImage->webp_name,
-                            "desktop" => "https://admin.city-inn.com.ua/storage/" . $image->path . $image->webp_name,
+                            "mobile" => $_SERVER["APP_URL"]."/storage/" . $mobileImage->path . $mobileImage->webp_name,
+                            "tablet" => $_SERVER["APP_URL"]."/storage/" . $tabletImage->path . $tabletImage->webp_name,
+                            "desktop" => $_SERVER["APP_URL"]."/storage/" . $image->path . $image->webp_name,
                         ),
                         "jpg" => array(
-                            "mobile" => "https://admin.city-inn.com.ua/storage/" . $mobileImage->path . $mobileImage->file_name,
-                            "tablet" => "https://admin.city-inn.com.ua/storage/" . $tabletImage->path . $tabletImage->file_name,
-                            "desktop" => "https://admin.city-inn.com.ua/storage/" . $image->path . $image->file_name,
+                            "mobile" => $_SERVER["APP_URL"]."/storage/" . $mobileImage->path . $mobileImage->file_name,
+                            "tablet" => $_SERVER["APP_URL"]."/storage/" . $tabletImage->path . $tabletImage->file_name,
+                            "desktop" => $_SERVER["APP_URL"]."/storage/" . $image->path . $image->file_name,
                         )
                     ),
                     "button" => array(
@@ -417,14 +417,14 @@ class ConferenceController extends Controller
                 $mobileImage = $imageObject->resolveResponseValue($mobileWhyImagesIds[$i]);
                 array_push($why_images, array(
                     "webp" => array(
-                        "mobile" => "https://admin.city-inn.com.ua/storage/" . $mobileImage->path . $mobileImage->webp_name,
-                        "tablet" => "https://admin.city-inn.com.ua/storage/" . $tabletImage->path . $tabletImage->webp_name,
-                        "desktop" => "https://admin.city-inn.com.ua/storage/" . $image->path . $image->webp_name,
+                        "mobile" => $_SERVER["APP_URL"]."/storage/" . $mobileImage->path . $mobileImage->webp_name,
+                        "tablet" => $_SERVER["APP_URL"]."/storage/" . $tabletImage->path . $tabletImage->webp_name,
+                        "desktop" => $_SERVER["APP_URL"]."/storage/" . $image->path . $image->webp_name,
                     ),
                     "jpg" => array(
-                        "mobile" => "https://admin.city-inn.com.ua/storage/" . $mobileImage->path . $mobileImage->file_name,
-                        "tablet" => "https://admin.city-inn.com.ua/storage/" . $tabletImage->path . $tabletImage->file_name,
-                        "desktop" => "https://admin.city-inn.com.ua/storage/" . $image->path . $image->file_name,
+                        "mobile" => $_SERVER["APP_URL"]."/storage/" . $mobileImage->path . $mobileImage->file_name,
+                        "tablet" => $_SERVER["APP_URL"]."/storage/" . $tabletImage->path . $tabletImage->file_name,
+                        "desktop" => $_SERVER["APP_URL"]."/storage/" . $image->path . $image->file_name,
                     )
                 ));
             }
@@ -454,14 +454,14 @@ class ConferenceController extends Controller
                 "description" => $service->park_description,
                 "image"=> array(
                     "webp" => array(
-                        "mobile" => "https://admin.city-inn.com.ua/storage/" . $mobileImage->path . $mobileImage->webp_name,
-                        "tablet" => "https://admin.city-inn.com.ua/storage/" . $tabletImage->path . $tabletImage->webp_name,
-                        "desktop" => "https://admin.city-inn.com.ua/storage/" . $image->path . $image->webp_name,
+                        "mobile" => $_SERVER["APP_URL"]."/storage/" . $mobileImage->path . $mobileImage->webp_name,
+                        "tablet" => $_SERVER["APP_URL"]."/storage/" . $tabletImage->path . $tabletImage->webp_name,
+                        "desktop" => $_SERVER["APP_URL"]."/storage/" . $image->path . $image->webp_name,
                     ),
                     "jpg" => array(
-                        "mobile" => "https://admin.city-inn.com.ua/storage/" . $mobileImage->path . $mobileImage->file_name,
-                        "tablet" => "https://admin.city-inn.com.ua/storage/" . $tabletImage->path . $tabletImage->file_name,
-                        "desktop" => "https://admin.city-inn.com.ua/storage/" . $image->path . $image->file_name,
+                        "mobile" => $_SERVER["APP_URL"]."/storage/" . $mobileImage->path . $mobileImage->file_name,
+                        "tablet" => $_SERVER["APP_URL"]."/storage/" . $tabletImage->path . $tabletImage->file_name,
+                        "desktop" => $_SERVER["APP_URL"]."/storage/" . $image->path . $image->file_name,
                     )
                 ),
             ));

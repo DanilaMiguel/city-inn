@@ -2,6 +2,6 @@
 return [
     'locales' => [
         'en' => 'English',
-        'ua' => 'Ukraine',
+        'ua' => 'Ukrainian',
     ],
 ];

@@ -58,7 +58,7 @@ class Footer extends Resource
             Translatable::make("Назва","title")->sortable()->required(),
             Number::make("Сортування",'sort')->default(100)->sortable(),
             Boolean::make("Активність","active"),
-            BelongsToMany::make('Контакти',"items","App\Nova\FooterItem")
+            BelongsToMany::make('Пункти',"items","App\Nova\FooterItem")
         ];
     }
 

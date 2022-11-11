@@ -13,11 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale()], function() {
-
-    Route::get("/contacts_card/", [\App\Http\Controllers\ContactController::class, 'index']);
-
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});

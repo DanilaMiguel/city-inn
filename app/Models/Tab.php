@@ -10,5 +10,5 @@ class Tab extends Model
 {
     use HasFactory;
     use HasTranslations;
-    public $translatable = ['text'];
+    public $translatable = ['text', 'text_adder'];
 }

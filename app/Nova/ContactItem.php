@@ -60,7 +60,7 @@ class ContactItem extends Resource
             Text::make("Посилання","link"),
             Number::make("Сортування",'sort')->default(100)->sortable(),
             Boolean::make("Call us",'call_us'),
-        ];
+            ];
     }
 
     /**

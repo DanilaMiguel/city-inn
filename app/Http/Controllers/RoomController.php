@@ -252,7 +252,7 @@ class RoomController extends Controller
             array_push($result["sections"], array(
                 "subTitle" => trans("controllers.RoomServicesInclude"),
                 "services" => $included_features_data,
-                "title"    => $bottomBlock->subtitle,
+                "title"    => $bottomBlock->header_two,
                 "image"    => array(
                     "webp" => array(
                         "mobile" => "https://admin.city-inn.com.ua/storage/" . $mobileImageBottom->path . $mobileImageBottom->webp_name,

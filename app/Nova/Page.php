@@ -58,7 +58,7 @@ class Page extends Resource
             ID::make(__('ID'), 'id')->sortable(),
             Translatable::make("Заголовок","title")->sortable()->required(),
             Translatable::make("Підзаголовок","subtitle")->sortable(),
-            Translatable::make("Опис","description")->sortable()->required(),
+            Translatable::make("Опис","description")->sortable(),
             Number::make("Сортування",'sort')->default(100)->sortable(),
             MediaField::make('Головне зображення', 'head_image')->required(),
             MediaField::make('Головне планшетне зображення', 'tablet_head_image')->required(),
